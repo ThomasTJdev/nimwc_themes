@@ -16,35 +16,20 @@ import ../../nimwcpkg/resources/password/password_generate
 import ../../nimwcpkg/resources/password/salt_generate
 import ../../nimwcpkg/resources/session/user_data
 import ../../nimwcpkg/resources/utils/random_generator
+import ../../nimwcpkg/resources/utils/plugins
 import ../../nimwcpkg/resources/web/google_recaptcha
 
-
-const pluginTitle       = "Themes"
-const pluginAuthor      = "Thomas T. Jarløv"
-const pluginVersion     = "0.1"
-const pluginVersionDate = "2018-05-20"
-
-
 proc pluginInfo() =
+  let (n, v, d, u) = pluginExtractDetails("themes")
   echo " "
   echo "--------------------------------------------"
-  echo "  Package:      " & pluginTitle & " plugin"
-  echo "  Author:       " & pluginAuthor
-  echo "  Version:      " & pluginVersion
-  echo "  Version date: " & pluginVersionDate
+  echo "  Package:      " & n
+  echo "  Version:      " & v
+  echo "  Description:  " & d
+  echo "  URL:          " & u
   echo "--------------------------------------------"
   echo " "
 pluginInfo()
-
-
-proc currentStylesheet*(): string =
-  ## Get the name of the current stylesheet (style.css)
-  ## The first line in style.css will be read, and the
-  ## first 2 and last 2 chars will be removed
-  
-  let stylesheet = open("public/css/style.css", fmRead)
-  let currentSheetLine = readLine(stylesheet)
-  return currentSheetLine.substr(2, currentSheetLine.len() - 3)
 
 
 include "html.tmpl"
@@ -56,9 +41,9 @@ proc themesStart*(db: DbConn) =
   ## If there's no need for this proc, just
   ## discard it. The proc may not be removed.
 
-  echo "Themes: Copying style.css (default) to plugin folder"
+  echo "Themes: Copying style_custom.css (default) to plugin folder"
 
-  if not fileExists("plugins/themes/stylesheets/style.css"):
-    discard execCmd("cp public/css/style.css plugins/themes/stylesheets/style.css")
+  if not fileExists("plugins/themes/stylesheets/style_custom.css"):
+    discard execCmd("cp public/css/style_custom.css plugins/themes/stylesheets/style_custom.css")
   else:
-    echo "Themes: style.css (default) already exists in plugin folder - skipping"
+    echo "Themes: style_custom.css (default) already exists in plugin folder - skipping"

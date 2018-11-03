@@ -9,50 +9,52 @@
 #proc genThemesSettings*(c: var TData, msg = ""): string =
 # result = ""
 
+<link rel="stylesheet" href="/css/style_admin.css">
 <link rel="stylesheet" href="/css/themes_private.css">
-
-# if msg != "":
-<div style="color: red">
-  ${decodeUrl(msg)}
-</div>
-# end if
+<script src="/js/themes_private.js" defer></script>
 
 <div id="themes">
-  <div>
+
+  # if msg != "":
+  <div style="color: red">
+    ${decodeUrl(msg)}
+  </div>
+  # end if
+
+  <div id="themesFront">
     <h1>Themes settings</h1>
+
+    # let (n, v, d, u) = pluginExtractDetails("themes")
+    <div id="pluginDetails">
+      <hr>
+      <div> <b>Package:</b> ${n}</div>
+      <div> <b>Version:</b> ${v}</div>
+      <div> <b>Description:</b><br>${d}</div>
+      <div> <b>URL:</b> <a href="${u}">${u}</a></div>
+      <hr>
+    </div>
+
   </div>
-  
-  <div id="themesFront" style="width: 300px; margin-right: auto;">
-  
-    <div>----------------------------------------------------------------</div>
-    <div> Package:      $pluginTitle plugin</div>
-    <div> Author:       $pluginAuthor</div>
-    <div> Version:      $pluginVersion</div>
-    <div> Version date: $pluginVersionDate</div>
-    <div>----------------------------------------------------------------</div>
-  
-  </div>
-  
+
   <hr>
 
   <form class="stylesheet" method="get" action="/themes/newsheet">
     <label>New stylesheet name</label>
     <input name="stylesheetname" required />
     <button type="submit" class="btn btn-primary">Save</button>
-    <i>This will save your current style.css with a new name</i>
-    <i>Remember to prepend .css and change the stylesheet name in the top of the file.</i>
+    <i>This will save your current style_custom.css with a new name</i>
+    <i>Only write the name; the extension (CSS) will be append automatic</i>
   </form>
 
   <ul class="stylesheet">
 
-#   let currentStylesheet = currentStylesheet()      
-#
 #   # Add default stylesheet
-#   if currentStylesheet == "style.css":
-      <li class="stylesheet active"><a href="#!">Active</a><span>style.css (default)</span><a class="update" href="/themes/update?stylesheetname=style.css">Update</a></li>
-#   else:
-      <li class="stylesheet"><a href="/themes/apply?stylesheetname=style.css">Apply</a><span>style.css (default)</span></li>
-#   end if
+    <li class="stylesheet">
+      <button class="btn btn-success apply" data-url="/themes/apply?stylesheetname=style_custom.css">Apply</button>
+      <button class="btn btn-warning update" data-url="/themes/update?stylesheetname=style_custom.css">Update</button>
+      <button class="btn btn-danger delete" data-url="/themes/delete?stylesheetname=style_custom.css">Delete</button>
+      <span>style_custom.css (default)</span>
+    </li>
 #
 #   var defaultSheet = false
 #   for plugin in walkDir("plugins/themes/stylesheets/"):
@@ -60,21 +62,22 @@
 #     discard pd
 #     let pluginName = replace(ppath, "plugins/themes/stylesheets/", "")
 #
-#     if pluginName == "style.css":
+#     if pluginName == "style_custom.css":
 #       continue
 #     end if
-#     
-#     if pluginName == currentStylesheet:
-        <li class="stylesheet active"><a href="#!">Active</a><span>$pluginName</span><a class="update" href="/themes/update?stylesheetname=$pluginName">Update</a></li>
-#     else:
-        <li class="stylesheet"><a href="/themes/apply?stylesheetname=$pluginName">Apply</a><span>$pluginName</span></li>
-#     end if
-        
+#
+      <li class="stylesheet">
+        <button class="btn btn-success apply" data-url="/themes/apply?stylesheetname=$pluginName">Apply</button>
+        <button class="btn btn-warning update" data-url="/themes/update?stylesheetname=$pluginName">Update</button>
+        <button class="btn btn-danger delete" data-url="/themes/delete?stylesheetname=$pluginName">Delete</button>
+        <span>$pluginName</span>
+      </li>
+
 #   end for
   </ul>
-  
+
   <div>
-    <i>If you update the template stylesheet, it will be overridden with your current css sheet.</i>
+    <i>If you update the template stylesheet, it will be overwritten with your current css sheet.</i>
   </div>
 </div>
 

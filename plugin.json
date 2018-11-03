@@ -1,8 +1,8 @@
 [
   {
-    "name": "themes",
+    "name": "Themes",
     "foldername": "themes",
-    "version": "0.1",
+    "version": "0.2",
     "url": "https://github.com/ThomasTJdev/nimwc_themes.git",
     "method": "git",
     "tags": [

@@ -1,0 +1,58 @@
+body {
+  background: rgb(28, 26, 51);
+}
+
+div#background {
+  background-image: none;
+}
+
+#pagewrapper {
+  background: rgb(28, 26, 51);
+  padding: 0px;
+}
+#page #about,
+#page #frontpage {
+  color: white;
+}
+
+nav#navbar div#navbarInside {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer {
+  border-top: 1px solid #dee2e6;
+  background: rgb(28, 26, 51);
+}
+footer .footerLeft u,
+footer .footerMiddle,
+footer .footerRight u {
+  color:white;
+}
+@media only screen and (max-width: 768px) {
+  footer {
+    position: initial;
+    bottom: auto;
+  }
+}
+
+header {
+  display: inline-block;
+  width: 100%;
+}
+nav#navbar{
+  background: #1c1a33;
+}
+nav#navbar .navbar-brand {
+  color: white;
+}
+nav#navbar a.nav-link {
+  color: white;
+}
+nav#navbar .navbar-toggler {
+  border: none;
+}
+nav#navbar .navbar-toggler-icon {
+  border: 1px solid white;
+}
