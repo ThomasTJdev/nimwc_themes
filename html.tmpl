@@ -38,10 +38,10 @@
 
   <hr>
 
-  <form class="stylesheet" method="get" action="/themes/newsheet">
+  <form class="stylesheet" method="get" action="/themes/newstylesheet">
     <label>New stylesheet name</label>
     <input name="stylesheetname" required />
-    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="submit" class="button is-success">Save</button>
     <i>This will save your current style_custom.css with a new name</i>
     <i>Only write the name; the extension (CSS) will be append automatic</i>
   </form>
@@ -50,9 +50,9 @@
 
 #   # Add default stylesheet
     <li class="stylesheet">
-      <button class="btn btn-success apply" data-url="/themes/apply?stylesheetname=style_custom.css">Apply</button>
-      <button class="btn btn-warning update" data-url="/themes/update?stylesheetname=style_custom.css">Update</button>
-      <button class="btn btn-danger delete" data-url="/themes/delete?stylesheetname=style_custom.css">Delete</button>
+      <button class="button is-success apply" data-url="/themes/apply?stylesheetname=style_custom.css">Apply</button>
+      <button class="button is-warning update" data-url="/themes/update?stylesheetname=style_custom.css">Update</button>
+      <button class="button is-danger delete" data-url="/themes/delete?stylesheetname=style_custom.css">Delete</button>
       <span>style_custom.css (default)</span>
     </li>
 #
@@ -67,9 +67,9 @@
 #     end if
 #
       <li class="stylesheet">
-        <button class="btn btn-success apply" data-url="/themes/apply?stylesheetname=$pluginName">Apply</button>
-        <button class="btn btn-warning update" data-url="/themes/update?stylesheetname=$pluginName">Update</button>
-        <button class="btn btn-danger delete" data-url="/themes/delete?stylesheetname=$pluginName">Delete</button>
+        <button class="button is-success apply" data-url="/themes/apply?stylesheetname=$pluginName">Apply</button>
+        <button class="button is-warning update" data-url="/themes/update?stylesheetname=$pluginName">Update</button>
+        <button class="button is-danger delete" data-url="/themes/delete?stylesheetname=$pluginName">Delete</button>
         <span>$pluginName</span>
       </li>
 

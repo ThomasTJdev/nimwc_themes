@@ -1,0 +1,36 @@
+/* Height of page */
+body.has-navbar-fixed-top, html.has-navbar-fixed-top {
+  padding-top: 0;
+}
+/* Logged in settings */
+div#navbarSettings {
+  margin-top: 27px;
+  width: 1200px;
+}
+
+div#background {
+  background-image: none;
+  background-color: grey;
+}
+
+#pagewrapper {
+  background: #fffefe;
+  max-width: 1200px;
+  padding-top: 60px;
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+}
+
+.navbar.is-fixed-top {
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+  background: #f5f5f5c2;
+}
+
+div#allblogPosts .list-group-item {
+  margin: 15px;
+  -webkit-box-shadow: 0px 2px 10px 3px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 2px 10px 3px rgba(0,0,0,0.75);
+  box-shadow: 0px 2px 10px 3px rgba(0,0,0,0.75);
+}

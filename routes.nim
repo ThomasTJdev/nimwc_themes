@@ -13,14 +13,14 @@
 
       redirect("/themes/settings")
 
-  get "/themes/newsheet":
+  get "/themes/newstylesheet":
     createTFD()
     if c.loggedIn and c.rank in [Admin, Moderator]:
       if @"stylesheetname" == "":
         redirect("/themes/settings?msg=" & encodeUrl("Missing new name"))
 
       if @"stylesheetname" == "style.css":
-        redirect("/themes/settings?msg=" & encodeUrl("You can not name the new sheet style.css"))
+        redirect("/themes/settings?msg=" & encodeUrl("The name may be style.css"))
 
       discard execCmd("cp public/css/style_custom.css plugins/themes/stylesheets/" & @"stylesheetname" & ".css")
       redirect("/themes/settings")

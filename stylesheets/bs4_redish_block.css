@@ -3,6 +3,11 @@ body {
   background: #be2828;
 }
 
+div#background {
+  background-image: none;
+  background: #be2828;
+}
+
 #pagewrapper {
   background: white;
   width: 1200px;

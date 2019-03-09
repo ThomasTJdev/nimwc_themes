@@ -10,14 +10,9 @@ import
   strutils,
   uri
 
-
-import ../../nimwcpkg/resources/email/email_registration
-import ../../nimwcpkg/resources/password/password_generate
-import ../../nimwcpkg/resources/password/salt_generate
 import ../../nimwcpkg/resources/session/user_data
-import ../../nimwcpkg/resources/utils/random_generator
 import ../../nimwcpkg/resources/utils/plugins
-import ../../nimwcpkg/resources/web/google_recaptcha
+
 
 proc pluginInfo() =
   let (n, v, d, u) = pluginExtractDetails("themes")
@@ -41,9 +36,9 @@ proc themesStart*(db: DbConn) =
   ## If there's no need for this proc, just
   ## discard it. The proc may not be removed.
 
-  echo "Themes: Copying style_custom.css (default) to plugin folder"
+  echo "Themes: Copying style_custom.css to plugin folder"
 
   if not fileExists("plugins/themes/stylesheets/style_custom.css"):
     discard execCmd("cp public/css/style_custom.css plugins/themes/stylesheets/style_custom.css")
   else:
-    echo "Themes: style_custom.css (default) already exists in plugin folder - skipping"
+    echo "Themes: style_custom.css already exists in plugin folder - skipping"

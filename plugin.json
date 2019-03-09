@@ -2,7 +2,8 @@
   {
     "name": "Themes",
     "foldername": "themes",
-    "version": "0.2",
+    "version": "0.3",
+    "requires": "5.0",
     "url": "https://github.com/ThomasTJdev/nimwc_themes.git",
     "method": "git",
     "tags": [
@@ -12,6 +13,8 @@
     ],
     "description": "Switch between different themes/stylesheets. Save you design to a CSS file.",
     "license": "MIT",
-    "web": "https://github.com/ThomasTJdev/nimwc_themes"
+    "web": "https://github.com/ThomasTJdev/nimwc_themes",
+    "sustainability": "",
+    "email": "codefactory@ttj.dk"
   }
 ]
