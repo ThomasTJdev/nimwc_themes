@@ -10,12 +10,12 @@ import
   strutils,
   uri
 
-import ../../nimwcpkg/resources/session/user_data
-import ../../nimwcpkg/resources/utils/plugins
+import ../../nimwcpkg/sessions/sessions
+import ../../nimwcpkg/plugins/plugins
 
 
 proc pluginInfo() =
-  let (n, v, d, u) = pluginExtractDetails("themes")
+  let (n, v, d, u) = pluginGetDetails("themes")
   echo " "
   echo "--------------------------------------------"
   echo "  Package:      " & n
